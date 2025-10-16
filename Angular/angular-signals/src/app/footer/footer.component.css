@@ -1,0 +1,13 @@
+
+        .footer {
+            background: #b0c6db;
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6c757d;
+            border-top: 1px solid #e7e7e7;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
