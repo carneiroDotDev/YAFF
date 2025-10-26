@@ -338,6 +338,11 @@
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<app-user [avatar]="users[0].avatar" [name]="users[0].name"></app-user>
+<app-user 
+   [id]="users[0].id" 
+   [avatar]="users[0].avatar" 
+   [name]="users[0].name"
+   (select)="onSelectUser($event)"
+   (selectOutputSignal)="onSelectUser($event)"></app-user>
 <app-footer></app-footer>
 <router-outlet />
