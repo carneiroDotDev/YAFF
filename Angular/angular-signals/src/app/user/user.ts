@@ -11,13 +11,13 @@ export class User {
   randomIndex = () => Math.floor(Math.random() * DUMMY_USERS.length);
   // public selectedUser = DUMMY_USERS[0];
   public selectedUser = signal(DUMMY_USERS[this.randomIndex()]);
-  public imagePath = computed(() => `users/${this.avatar}`);
 
   // get imagePath() {
     // return `users/${this.selectedUser().avatar}`;
   // }
 
   @Input({ required: true }) avatar!: string;
+  public imagePath = computed(() => `users/${this.avatar}`);
   id = input.required<string>();
   @Output() select = new EventEmitter<InputSignal<string>>();
   // @Input() name!: string;
