@@ -1,21 +1,23 @@
-import { Component, InputSignal, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DUMMY_USERS } from './dummy-users';
+import { DUMMY_USERS, UserType } from './dummy-users';
 import { FooterComponent } from "./footer/footer.component";
+import { TasksComponent } from './tasks/tasks.component';
 import { User } from "./user/user";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FooterComponent, FooterComponent, User],
+  imports: [RouterOutlet, FooterComponent, FooterComponent, User, TasksComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
   protected readonly title = signal('angular-signals');
   users = DUMMY_USERS;
-  randomUser = signal(DUMMY_USERS[Math.floor(Math.random() * DUMMY_USERS.length)]);
+  selectedUser = signal<UserType>(DUMMY_USERS[Math.floor(Math.random() * DUMMY_USERS.length)]);
 
-  onSelectUser(userId: InputSignal<string>) {
-    console.log('Selected user ID: ', userId());
+  onSelectUser(user: UserType) {
+    console.log('Selected user ID: ', user);
+    this.selectedUser.set(user);
   }
 }
