@@ -13,6 +13,7 @@ import { User } from "./user/user";
 export class App {
   protected readonly title = signal('angular-signals');
   users = DUMMY_USERS;
+  randomUser = signal(DUMMY_USERS[Math.floor(Math.random() * DUMMY_USERS.length)]);
 
   onSelectUser(userId: InputSignal<string>) {
     console.log('Selected user ID: ', userId());

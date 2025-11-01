@@ -338,11 +338,19 @@
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<app-user 
+<!-- <app-user 
    [id]="users[0].id" 
    [avatar]="users[0].avatar" 
    [name]="users[0].name"
    (select)="onSelectUser($event)"
-   (selectOutputSignal)="onSelectUser($event)"></app-user>
+   (selectOutputSignal)="onSelectUser($event)" /> -->
+<app-user 
+   [id]="randomUser().id" 
+   [avatar]="randomUser().avatar" 
+   [name]="randomUser().name"
+   (select)="onSelectUser($event)"
+   (selectOutputSignal)="onSelectUser($event)" />
+   {{ title() }}
+<!-- <app-tasks [name]=""/> -->
 <app-footer></app-footer>
 <router-outlet />
