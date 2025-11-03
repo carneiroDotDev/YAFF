@@ -1,4 +1,4 @@
-import { Component, computed, input, output, signal } from '@angular/core';
+import { Component, computed, input, output } from '@angular/core';
 import { DUMMY_USERS, UserType } from '../dummy-users';
 
 @Component({
@@ -10,7 +10,7 @@ import { DUMMY_USERS, UserType } from '../dummy-users';
 export class User {
   randomIndex = () => Math.floor(Math.random() * DUMMY_USERS.length);
   // public initialUser = DUMMY_USERS[0];
-  public initialUser = signal(DUMMY_USERS[this.randomIndex()]);
+  // public initialUser = signal(DUMMY_USERS[this.randomIndex()]);
 
   // get imagePath() {
     // return `users/${this.initialUser().avatar}`;
@@ -28,11 +28,12 @@ export class User {
 
   onSelectUser() {
     const randomUser = DUMMY_USERS[this.randomIndex()];
-    this.initialUser.set(randomUser);
+    // this.initialUser.set(randomUser);
     // this.initialUser =
     //   DUMMY_USERS[Math.floor(Math.random() * DUMMY_USERS.length)];
     // this.select.emit(this.id);
     this.selectOutputSignal.emit(randomUser);
+    console.log('randomUser: ', randomUser);
   }
 
 }

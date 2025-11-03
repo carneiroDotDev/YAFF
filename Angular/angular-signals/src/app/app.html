@@ -345,9 +345,9 @@
    (select)="onSelectUser($event)"
    (selectOutputSignal)="onSelectUser($event)" /> -->
 <app-user 
-   [user]="selectedUser()"
+   [user]="selectedUser"
    (selectOutputSignal)="onSelectUser($event)" />
    {{ title() }}
-<app-tasks [name]="selectedUser().name"/>
+<app-tasks [name]="selectedUser.name"/>
 <app-footer></app-footer>
 <router-outlet />

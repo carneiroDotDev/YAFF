@@ -12,12 +12,13 @@ import { User } from "./user/user";
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('angular-signals');
-  users = DUMMY_USERS;
-  selectedUser = signal<UserType>(DUMMY_USERS[Math.floor(Math.random() * DUMMY_USERS.length)]);
-
+  protected readonly title = signal<string>('angular-signals');
+  // users = DUMMY_USERS;
+  selectedUser: UserType = DUMMY_USERS[Math.floor(Math.random() * DUMMY_USERS.length)];
+  
   onSelectUser(user: UserType) {
+    console.log('Initial APP user: ', this.selectedUser);
     console.log('Selected user ID: ', user);
-    this.selectedUser.set(user);
+    this.selectedUser = user;
   }
 }
